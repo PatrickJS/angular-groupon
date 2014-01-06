@@ -1,3 +1,32 @@
 {
-
+  "name": "angular-groupon",
+  "version": "0.0.1",
+  "main": "angular-groupon.js",
+  "description": "An Angular.js wrapper for Groupon API",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "Groupon",
+    "api"
+  ],
+  "author": [
+    {
+      "name": "Patrick Stapleton",
+      "email": "github@gdi2290.com",
+      "url": "www.gdi2290.com"
+    }
+  ],
+  "ignore": [
+    "**/.*",
+    "*.yml",
+    "*.xml",
+    "example",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*"
+  }
 }
