@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example Angular Groupon App</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css">
+</head>
+<body ng-app="GrouponApp" ng-controller="MainController">
+  <button ng-click="getDeals()">Get Deals</button>
+  <pre>{{ deals | json }}</pre>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-animate.js"></script>
+  <script src="../angular-groupon.js"></script>
+  <script>
+    angular.module('GrouponApp', [
+      'ngAnimate',
+      'gdi2290.groupon' // you can also use 'ngCrypto' or 'angular-crypto'
+    ])
+    .config(function(GrouponProvider) {
+      GrouponProvider
+        .setApiKey('XXXXXXXXXXXXXXXXXXX');
+    })
+    .controller('MainController', function($scope, Groupon) {
+      $scope.getDeals = function() {
+        Groupon.getDeals().then(function(deals) {
+          $scope.deals = deals;
+        });
+      }
+    })
+  </script>
+</body>
+</html>
