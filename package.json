@@ -1,3 +1,43 @@
 {
-
+  "name": "angular-groupon",
+  "version": "0.0.1",
+  "description": "An Angular.js wrapper for Groupon API",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "Groupon",
+    "api"
+  ],
+  "author": [
+    {
+      "name": "Patrick Stapleton",
+      "email": "github@gdi2290.com",
+      "url": "www.gdi2290.com"
+    }
+  ],
+  "scripts": {
+    "start": "grunt",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/gdi2290/angular-groupon.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "load-grunt-tasks": "*",
+    "time-grunt": "*",
+    "grunt": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-ngmin": "*"
+  }
 }
