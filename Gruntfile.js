@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           beautify: false,
-          mangle: false, // true of ngmin
+          mangle: true,
           compress: {
             global_defs: {
               'DEBUG': false
