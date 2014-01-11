@@ -7,12 +7,14 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.3/normalize.min.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-csp.css">
 </head>
 <body ng-app="GrouponApp" ng-controller="MainController">
   <button ng-click="getDeals()">Get Deals</button>
   <button ng-click="getDivisions()">Get Divisions</button>
+  <button ng-click="getGrouponSays()">Get Groupon Says</button>
   <button ng-click="getStatus()">Get Status</button>
-  <pre>{{ deals | json }}</pre>
+  <pre class="ng-cloak" ng-show="deals"><b>window.data</b> = {{ deals | json }}</pre>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-animate.js"></script>
@@ -26,21 +28,31 @@
       GrouponProvider
         .setApiKey('fa4f60572f15e7ed9800f9fdc807ca903aa5248b');
     })
-    .controller('MainController', function($scope, Groupon) {
+    .controller('MainController', function($scope, $window, Groupon) {
       $scope.getDeals = function() {
         Groupon.getDeals().then(function(data) {
-          $scope.deals = data;
+          $window.data = data.deals;
+          $scope.deals = data.deals;
         });
       };
 
       $scope.getDivisions = function() {
         Groupon.getDivisions().then(function(data) {
-          $scope.deals = data;
+          $window.data = data.divisions;
+          $scope.deals = data.divisions;
+        });
+      };
+
+      $scope.getGrouponSays = function() {
+        Groupon.getGrouponSays().then(function(data) {
+          $window.data = data.grouponSayings;
+          $scope.deals = data.grouponSayings;
         });
       };
 
       $scope.getStatus = function() {
         Groupon.getStatus().then(function(data) {
+          $window.data = data;
           $scope.deals = data;
         });
       };
