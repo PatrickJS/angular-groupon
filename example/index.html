@@ -10,6 +10,8 @@
 </head>
 <body ng-app="GrouponApp" ng-controller="MainController">
   <button ng-click="getDeals()">Get Deals</button>
+  <button ng-click="getDivisions()">Get Divisions</button>
+  <button ng-click="getStatus()">Get Status</button>
   <pre>{{ deals | json }}</pre>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
@@ -18,18 +20,31 @@
   <script>
     angular.module('GrouponApp', [
       'ngAnimate',
-      'gdi2290.groupon' // you can also use 'ngCrypto' or 'angular-crypto'
+      'gdi2290.groupon' // you can also use 'ngGroupon' or 'angular-groupon'
     ])
     .config(function(GrouponProvider) {
       GrouponProvider
-        .setApiKey('XXXXXXXXXXXXXXXXXXX');
+        .setApiKey('fa4f60572f15e7ed9800f9fdc807ca903aa5248b');
     })
     .controller('MainController', function($scope, Groupon) {
       $scope.getDeals = function() {
-        Groupon.getDeals().then(function(deals) {
-          $scope.deals = deals;
+        Groupon.getDeals().then(function(data) {
+          $scope.deals = data;
         });
-      }
+      };
+
+      $scope.getDivisions = function() {
+        Groupon.getDivisions().then(function(data) {
+          $scope.deals = data;
+        });
+      };
+
+      $scope.getStatus = function() {
+        Groupon.getStatus().then(function(data) {
+          $scope.deals = data;
+        });
+      };
+
     })
   </script>
 </body>
