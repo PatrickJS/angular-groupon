@@ -1,6 +1,6 @@
 {
   "name": "angular-groupon",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An Angular.js wrapper for Groupon API",
   "keywords": [
     "angular",

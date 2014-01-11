@@ -1,5 +1,5 @@
 /*
-  angular-groupon - v0.1.2 
+  angular-groupon - v0.1.6 
   2014-01-11
 */
 (function(window, angular, undefined) {
@@ -32,7 +32,7 @@
                 getGrouponSays: function(limit, conf) {
                     var dfd = $q.defer();
                     conf = prepareRequest(conf);
-                    conf.limit = limit;
+                    conf.limit = limit || 10;
                     $http({
                         method: "JSONP",
                         url: _baseUrl + "/groupon_says.json",
@@ -52,7 +52,7 @@
                         url: _baseUrl + "/deals.json",
                         params: conf
                     }).success(function(data) {
-                        dfd.resolve(data.deals);
+                        dfd.resolve(data);
                     }).error(function(reason) {
                         dfd.reject(reason);
                     });
