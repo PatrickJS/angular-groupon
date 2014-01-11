@@ -1,6 +1,6 @@
 /*
   angular-groupon - v0.1.2 
-  2014-01-05
+  2014-01-11
 */
 (function(window, angular, undefined) {
     "use strict";
@@ -10,8 +10,8 @@
     "use strict";
     angular.module("gdi2290.groupon", []).provider("Groupon", function() {
         var _apiKey = "";
-        var _baseUrl = "//api.groupon.com/v2";
-        var _statusUrl = "//api.groupon.com/";
+        var _baseUrl = "https://api.groupon.com/v2";
+        var _statusUrl = "https://api.groupon.com";
         this.setApiKey = function(key) {
             _apiKey = key || _apiKey;
         };
@@ -38,7 +38,7 @@
                         url: _baseUrl + "/groupon_says.json",
                         params: conf
                     }).success(function(data) {
-                        dfd.resolve(data.deals);
+                        dfd.resolve(data);
                     }).error(function(reason) {
                         dfd.reject(reason);
                     });
@@ -66,7 +66,7 @@
                         url: _baseUrl + "/deals/" + id + ".json",
                         params: conf
                     }).success(function(data) {
-                        dfd.resolve(data.deals);
+                        dfd.resolve(data);
                     }).error(function(reason) {
                         dfd.reject(reason);
                     });
@@ -80,7 +80,7 @@
                         url: _baseUrl + "/deals/" + id + "/posts.json",
                         params: conf
                     }).success(function(data) {
-                        dfd.resolve(data.deals);
+                        dfd.resolve(data);
                     }).error(function(reason) {
                         dfd.reject(reason);
                     });
@@ -94,7 +94,7 @@
                         url: _baseUrl + "/divisions.json",
                         params: conf
                     }).success(function(data) {
-                        dfd.resolve(data.deals);
+                        dfd.resolve(data);
                     }).error(function(reason) {
                         dfd.reject(reason);
                     });
@@ -108,7 +108,7 @@
                         url: _statusUrl + "/status.json",
                         params: conf
                     }).success(function(data) {
-                        dfd.resolve(data.deals);
+                        dfd.resolve(data);
                     }).error(function(reason) {
                         dfd.reject(reason);
                     });
