@@ -31,13 +31,15 @@
   "dependencies": {
   },
   "devDependencies": {
+    "connect-livereload": "*",
     "load-grunt-tasks": "*",
     "time-grunt": "*",
     "grunt": "*",
     "grunt-contrib-copy": "*",
+    "grunt-contrib-watch": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*",
+    "grunt-contrib-connect": "*",
     "grunt-ngmin": "*"
   }
 }
