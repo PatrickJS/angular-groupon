@@ -4,9 +4,14 @@
   "main": "angular-groupon.js",
   "description": "An Angular.js wrapper for Groupon API",
   "keywords": [
+    "gdi2290",
+    "PatrickJS",
+    "angular-groupon",
     "angular",
     "angularjs",
     "Groupon",
+    "Grouponjs",
+    "Groupon.js",
     "api"
   ],
   "author": [
